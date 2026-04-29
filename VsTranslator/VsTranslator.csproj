@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\TranslateCommand.cs" />
+    <Compile Include="Options\TranslatorOptionsPage.cs" />
     <Compile Include="Services\TranslationService.cs" />
     <Compile Include="TranslatorPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

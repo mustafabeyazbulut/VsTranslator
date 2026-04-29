@@ -31,7 +31,7 @@ namespace VsTranslator.Services
             _http.DefaultRequestHeaders.UserAgent.ParseAdd("VsTranslator/1.0");
         }
 
-        public async Task<string> TranslateAsync(string text, string from, string to, CancellationToken ct)
+        public async Task<string> TranslateAsync(string text, string from, string to, string email, CancellationToken ct)
         {
             if (string.IsNullOrWhiteSpace(text))
             {
@@ -44,7 +44,7 @@ namespace VsTranslator.Services
             foreach (var chunk in chunks)
             {
                 ct.ThrowIfCancellationRequested();
-                var translated = await TranslateChunkAsync(chunk, from, to, ct).ConfigureAwait(false);
+                var translated = await TranslateChunkAsync(chunk, from, to, email, ct).ConfigureAwait(false);
                 if (sb.Length > 0)
                 {
                     sb.Append(' ');
@@ -64,11 +64,15 @@ namespace VsTranslator.Services
             return text;
         }
 
-        private async Task<string> TranslateChunkAsync(string chunk, string from, string to, CancellationToken ct)
+        private async Task<string> TranslateChunkAsync(string chunk, string from, string to, string email, CancellationToken ct)
         {
             var url = ApiBase
                 + "?q=" + Uri.EscapeDataString(chunk)
                 + "&langpair=" + Uri.EscapeDataString(from + "|" + to);
+            if (!string.IsNullOrWhiteSpace(email))
+            {
+                url += "&de=" + Uri.EscapeDataString(email.Trim());
+            }
 
             using (var response = await _http.GetAsync(url, ct).ConfigureAwait(false))
             {

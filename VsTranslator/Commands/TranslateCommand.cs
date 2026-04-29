@@ -73,9 +73,11 @@ namespace VsTranslator.Commands
                 return;
             }
 
+            var email = GetEmail();
+
             await SetStatusAsync("Ceviriliyor...");
 
-            var translated = await _service.TranslateAsync(selected, "en", "tr", _package.DisposalToken)
+            var translated = await _service.TranslateAsync(selected, "en", "tr", email, _package.DisposalToken)
                 .ConfigureAwait(true);
 
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(_package.DisposalToken);
@@ -94,6 +96,13 @@ namespace VsTranslator.Commands
             var dte = Package.GetGlobalService(typeof(SDTE)) as DTE2;
             var selection = dte?.ActiveDocument?.Selection as TextSelection;
             return selection?.Text;
+        }
+
+        private string GetEmail()
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var page = _package.GetDialogPage(typeof(Options.TranslatorOptionsPage)) as Options.TranslatorOptionsPage;
+            return page?.Email;
         }
 
         private static void TryCopyToClipboard(string text)

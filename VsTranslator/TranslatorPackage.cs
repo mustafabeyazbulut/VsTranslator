@@ -9,6 +9,7 @@ namespace VsTranslator
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("VS Translator", "Editorde secili Ingilizce metni Turkceye cevirir.", "1.0.0")]
     [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideOptionPage(typeof(Options.TranslatorOptionsPage), "VsTranslator", "Genel", 0, 0, true)]
     [Guid(PackageGuidString)]
     [ProvideAutoLoad(Microsoft.VisualStudio.VSConstants.UICONTEXT.SolutionExists_string, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideAutoLoad(Microsoft.VisualStudio.VSConstants.UICONTEXT.NoSolution_string, PackageAutoLoadFlags.BackgroundLoad)]
