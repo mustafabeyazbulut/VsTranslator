@@ -1,0 +1,85 @@
+# ============================================================================
+# Genel
+# ============================================================================
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ortam degiskenleri / sirlar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ============================================================================
+# Editorler / IDE
+# ============================================================================
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+.idea/
+*.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ============================================================================
+# Node.js / JavaScript / TypeScript
+# ============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+dist/
+build/
+.next/
+.nuxt/
+.cache/
+coverage/
+*.tsbuildinfo
+
+# ============================================================================
+# .NET / C#
+# ============================================================================
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+TestResults/
+
+# ============================================================================
+# Python
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# ============================================================================
+# AL / Dynamics 365 Business Central
+# ============================================================================
+.alcache/
+.alpackages/
+.snapshots/
+.output/
+*.app
+rad.json
+*.g.xlf
+*.flf
+TestResults.xml

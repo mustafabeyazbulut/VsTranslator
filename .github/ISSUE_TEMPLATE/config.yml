@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Soru / Tartisma
+    url: https://github.com/<kullanici>/<repo>/discussions
+    about: Hata veya ozellik istegi disindaki sorularinizi Discussions altinda paylasin.

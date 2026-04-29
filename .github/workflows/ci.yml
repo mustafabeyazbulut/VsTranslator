@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Dile gore aciklamayi acin:
+      #
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: "20"
+      #     cache: "npm"
+      #
+      # - name: Setup .NET
+      #   uses: actions/setup-dotnet@v4
+      #   with:
+      #     dotnet-version: "8.0.x"
+      #
+      # - name: Setup Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: "3.12"
+
+      - name: Install
+        run: echo "TODO: kurulum komutunu ekleyin (orn. npm ci, dotnet restore)"
+
+      - name: Lint
+        run: echo "TODO: lint komutunu ekleyin"
+
+      - name: Test
+        run: echo "TODO: test komutunu ekleyin"
+
+      - name: Build
+        run: echo "TODO: build komutunu ekleyin"
