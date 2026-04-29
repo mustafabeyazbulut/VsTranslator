@@ -30,6 +30,7 @@ desktop.ini
 *.user
 *.userosscache
 *.sln.docstates
+.vs/
 
 # ============================================================================
 # Node.js / JavaScript / TypeScript
